@@ -1,0 +1,8 @@
+# Ignore the downloaded datasets
+csv_files-20261006T155940Z-1-001/csv_files/*.csv
+
+# Ignore secrets and local environments
+.env
+.venv/
+venv/
+__pycache__/
