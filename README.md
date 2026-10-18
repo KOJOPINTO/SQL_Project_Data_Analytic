@@ -6,6 +6,8 @@ This project demonstrates my practical SQL skills through a data analytics proje
 
 The goal is to use SQL to explore job market data, answer business questions, and identify insights that can support data-driven career and business decisions.
 
+SQL queries? Check them out here: [project_sql folder](/project_sql/)
+
 ## Objectives
 
 - Explore job postings and salary information.
@@ -17,9 +19,43 @@ The goal is to use SQL to explore job market data, answer business questions, an
 ## Tools and Technologies
 
 - **SQL** — querying and analyzing relational data.
+- **PostgreSQL** - the chosen database management system, ideal for handling the job posting data.
 - **Relational database** — creating and modifying database tables.
 - **Git and GitHub** — version control and project documentation.
 - **Visual Studio Code** — writing and managing SQL scripts.
+
+## The Analysis
+### 1.  Top-Paying Jobs for Data Analysts
+To identify the highest-paying Data Analyst roles, I filtered job postings by average yearly salary and location, focusing on remote opportunities. This query highlights high-paying opportunities in the field.
+```sql
+SELECT  job_title, 
+        job_title_short,
+        name AS company_name, 
+        job_location,
+        job_schedule_type, 
+        salary_year_avg, 
+        job_posted_date
+FROM job_postings_fact
+LEFT JOIN company_dim 
+ON job_postings_fact.company_id = company_dim.company_id
+WHERE job_location = 'Anywhere' AND(job_title_short = 'Data Analyst'
+AND salary_year_avg IS NOT NULL)
+ORDER BY salary_year_avg DESC
+LIMIT 10;
+```
+The query identifies the 10 highest-paying job postings classified as Data Analyst roles, based on average annual salary. 
+## Key findings
+- Highest reported salary: Mantys, at $650,000 annually.
+- Leadership roles feature prominently: Director, Associate Director, and Principal positions appear among the highest-paying results.
+- Remote opportunities are represented: All 10 listings show the location as “Anywhere,” suggesting remote flexibility in the dataset.
+## Important observation: 
+The $650,000 figure is substantially higher than the second-highest salary, so it is worth verifying the original job posting. Also, these are the highest-paying results in this query, not necessarily typical Data Analyst salaries. The dataset is from 2023, so the figures should not be treated as current salary benchmarks.
+
+Assets\Top paying role for Aata Analyst.png
+
+* Bar graph visualize top 10 paying role for data analyst.
+
+
 
 ## Database Structure
 
@@ -72,3 +108,5 @@ SQL_Project_Data_Analytic/
 I hold a Master of Science in Data Analytics and have a professional background in IT support. I am continuing to develop my practical SQL and data analytics skills by working on projects that address real-world questions.
 
 I welcome opportunities to contribute my technical, analytical, and problem-solving skills to a data analytics team.
+
+
