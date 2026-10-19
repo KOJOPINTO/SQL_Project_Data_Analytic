@@ -24,9 +24,11 @@ SQL queries? Check them out here: [project_sql folder](/project_sql/)
 - **Git and GitHub** — version control and project documentation.
 - **Visual Studio Code** — writing and managing SQL scripts.
 
-## The Analysis
+## The ANALYSIS
+
 ### 1.  Top-Paying Jobs for Data Analysts
 To identify the highest-paying Data Analyst roles, I filtered job postings by average yearly salary and location, focusing on remote opportunities. This query highlights high-paying opportunities in the field.
+
 ```sql
 SELECT  job_title, 
         job_title_short,
@@ -56,6 +58,7 @@ The $650,000 figure is substantially higher than the second-highest salary, so i
 * Bar graph visualize top 10 paying role for data analyst. 
 
 ## 2. Top Skills Required for Top-Paying Data Analyst Jobs
+
 To identify the skills required for high-paying Data Analyst roles, I analyzed job postings with the highest average salaries and examined the skills associated with those positions.
 
 ```sql
@@ -103,6 +106,7 @@ ON skills_job_dim.skill_id = skills_dim.skill_id;
 *Note: This analysis covers only 8 job postings and does not establish overall market demand.*
 
 ## 3. Most In-Demand Skills for Data Analysts
+
 Counted skill requirements across Data Analyst job postings to determine which skills appeared most frequently.
 
 ```sql
@@ -329,7 +333,7 @@ These tables support analysis involving job postings, companies, salaries, and r
 - Joining related tables
 - NULL Handling: Using `IS NULL` and `IS NOT NULL` to identify missing and non-missing values.
 - Common Table Expressions (CTEs): Using `WITH` to break complex analytical queries into readable, manageable steps.
-- Database and table creation and modification
+- Database and table creation and modification.
 
 ## Project Structure
 
